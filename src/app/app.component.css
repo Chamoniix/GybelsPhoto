@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,800,900');
 
 .application {
-  font-family: 'Lato', sans-serif;
-  background-color: #eeeeee;
+  font-family: 'Raleway', sans-serif;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -15,14 +15,20 @@
   align-items: center;
   justify-content: center;
   background-color: white;
-  height: 90vh;
+  overflow: hidden;
+  height: 80vh;
   width: 100vw;
+  opacity: 0.9;
 }
 
 .img_container img {
-  box-shadow: 1px 1px 12px #555;
-  max-width: 90%;
-  max-height: 90%;
+  width: 100%;
+}
+
+.credits {
+  height: 10vh;
+  display:  flex;
+  align-items: center;
 }
 
 .description {
@@ -37,4 +43,43 @@
   text-align: justify;
   font-size: 20px;
   margin-bottom: 20vh;
+}
+
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.--active {
+    width: 400px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
 }

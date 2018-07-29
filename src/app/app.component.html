@@ -1,18 +1,28 @@
 <div class="application">
 
-<app-header></app-header>
+	<app-header (openMenu)="openNav()"></app-header>
+	
+	<div id="mySidenav" class="sidenav" [ngClass]="isoppened()">
+	  <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+	  <a href="#">Kezako</a>
+	  <a href="#">Galerie</a>
+	  <a href="#">Ajouter une photo</a>
+	</div>
+	
+	<div class="img_container">
+		<img src="{{post.url}}" alt="Pic_of_the_day">
+	</div>
+	
+	<div class="credits">
+		<p>Postée par {{post.auteur}} le {{post.date | date: 'mediumDate'}}.</p>
+	</div>
+	
+	<div class="description">
+		<h1>{{post.titre}}</h1>
+	
+	  	<div>
+	    	{{post.description}}
+		</div>
+	</div>
 
-
-<div class="img_container">
-  <img src="{{post.url}}" alt="Pic_of_the_day">
-  <!-- <img src="src\ressources\img\HUG_6032-1.jpg" alt="Pic_of_the_day"> -->
-  <!-- <img src="src\ressources\img\HUG_6032-1.jpg" alt="Pic_of_the_day"> -->
-</div>
-
-<div class="description">
-  <h1>{{post.titre}}</h1>
-
-  <div>
-    {{post.description}}
-  </div>
 </div>

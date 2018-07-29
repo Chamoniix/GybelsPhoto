@@ -4,4 +4,5 @@ export class Post {
   description: string;
   date: Date;
   url: string;
+  auteur: string;
 }
