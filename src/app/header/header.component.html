@@ -3,6 +3,13 @@
     <!-- <img alt="logo" src="/src/ressources/img/logo.png" class="logo" /> -->
     <span class="title">PHOTO GYBELS</span>
   </div>
-  <span class="header_buttons" (click)="oppenedMenu()">	&#x2630;</span>
-  <!-- kezako - galerie -->
+
+  <div class="buttons_container">
+    <span class="theme_span">
+      <img *ngIf="!nightShift" (click)="switchTheme()" src="/src/ressources/svg/moon-regular.svg" />
+      <img *ngIf="nightShift" (click)="switchTheme()" src="/src/ressources/svg/moon-solid.svg" />
+    </span>
+    <span class="header_buttons" (click)="oppenedMenu()">	&#x2630;</span>
+  </div>
+
 </div>

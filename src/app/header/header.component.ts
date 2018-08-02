@@ -9,6 +9,8 @@ export class HeaderComponent implements OnInit {
 
   @Output() openMenu = new EventEmitter<boolean>();
 
+  public nightShift = false;
+
   constructor() { }
 
   ngOnInit() {
@@ -16,6 +18,10 @@ export class HeaderComponent implements OnInit {
 
   oppenedMenu() {
     this.openMenu.emit(true);
+  }
+
+  switchTheme() {
+    this.nightShift = !this.nightShift;
   }
 
 }
