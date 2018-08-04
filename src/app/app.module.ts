@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import {AngularFontAwesomeModule} from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -12,7 +11,6 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
   ],
   imports: [
     BrowserModule,
-    AngularFontAwesomeModule,
     HttpModule
   ],
   providers: [AppComponent],

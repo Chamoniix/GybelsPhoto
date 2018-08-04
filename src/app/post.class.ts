@@ -2,7 +2,7 @@ export class Post {
   id: number;
   titre: string;
   description: string;
-  date: Date;
+  date_creation: Date;
   url: string;
   auteur: string;
 }

@@ -21,13 +21,13 @@ export class AppComponent {
       'quam opulenti et calamitosi quam ii qui putentur beati.';
     this.post.titre = 'Le chaton';
     this.post.url = 'src/ressources/img/wallhaven-680441.jpg'; //HUG_6032-1.jpg - MAR_5586.JPG wallhaven-680441.jpg
-    this.post.date = new Date();
-    this.post.auteur = 'Hugo'
+    this.post.date_creation = new Date();
+    this.post.auteur = 'Hugo';
     this.getData();
   }
 
   private getData() {
-    return this.http.get('https://jsonplaceholder.typicode.com/posts/1').subscribe( data => {
+    return this.http.get('http://localhost:8080/api/post/1').subscribe( data => {
       console.log(data);
     });
   }
