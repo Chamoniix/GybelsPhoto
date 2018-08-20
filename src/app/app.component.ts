@@ -19,7 +19,7 @@ export class AppComponent {
       'minimumque virium, ita amicitias appetere maxime; ex eo fieri ut mulierculae magis amicitiarum praesidia quaerant quam' +
       'viri et inopes' +
       'quam opulenti et calamitosi quam ii qui putentur beati.';
-    this.post.titre = 'Le chaton';
+    this.post.titre = 'Titre';
     this.post.url = 'src/ressources/img/wallhaven-680441.jpg'; //HUG_6032-1.jpg - MAR_5586.JPG wallhaven-680441.jpg
     this.post.date_creation = new Date();
     this.post.auteur = 'Hugo';
