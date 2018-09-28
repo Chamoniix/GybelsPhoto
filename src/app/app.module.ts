@@ -3,15 +3,51 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import {RouterModule, Routes} from "@angular/router";
+import { PicOfTheDayComponent } from './pic-of-the-day/pic-of-the-day.component';
+import { AddPhotoComponent } from './add-photo/add-photo.component';
+import { MenuComponent } from './menu/menu.component';
+import { KezakoComponent } from './kezako/kezako.component';
+import { GalerieComponent } from './galerie/galerie.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'pic-of-the-day',
+    pathMatch: 'full'
+  },
+  {
+    path: 'pic-of-the-day',
+    component: PicOfTheDayComponent
+  },
+  {
+    path: 'add-photo',
+    component: AddPhotoComponent
+  },
+  {
+    path: 'kezako',
+    component: KezakoComponent
+  },
+  {
+    path: 'galerie',
+    component: GalerieComponent
+  }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    PicOfTheDayComponent,
+    AddPhotoComponent,
+    MenuComponent,
+    KezakoComponent,
+    GalerieComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [AppComponent],
   bootstrap: [AppComponent]

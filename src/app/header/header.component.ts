@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +7,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Output() openMenu = new EventEmitter<boolean>();
-
+  public showMenu = false;
   public nightShift = false;
 
   constructor() { }
@@ -16,8 +15,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  oppenedMenu() {
-    this.openMenu.emit(true);
+  toggleMenu() {
+    this.showMenu = !this.showMenu;
   }
 
   switchTheme() {

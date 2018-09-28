@@ -1,0 +1,6 @@
+<div id="mySidenav" class="sidenav" [ngClass]="isOpened()">
+  <a class="closebtn" (click)="closeMenu()">&times;</a>
+  <a routerLink="/kezako" routerLinkActive="active" (click)="closeMenu()">Kezako</a>
+  <a routerLink="/galerie" routerLinkActive="active" (click)="closeMenu()">Galerie</a>
+  <a routerLink="/add-photo" routerLinkActive="active" (click)="closeMenu()">Ajouter une photo</a>
+</div>
