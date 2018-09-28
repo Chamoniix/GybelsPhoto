@@ -1,14 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import {RouterModule, Routes} from "@angular/router";
+import {RouterModule, Routes} from '@angular/router';
 import { PicOfTheDayComponent } from './pic-of-the-day/pic-of-the-day.component';
 import { AddPhotoComponent } from './add-photo/add-photo.component';
 import { MenuComponent } from './menu/menu.component';
 import { KezakoComponent } from './kezako/kezako.component';
 import { GalerieComponent } from './galerie/galerie.component';
+import {HttpClientModule} from '@angular/common/http';
+import {PicOfTheDayService} from "./pic-of-the-day/pic-of-the-day.component.service";
 
 const routes: Routes = [
   {
@@ -46,10 +47,10 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AppComponent],
+  providers: [AppComponent, PicOfTheDayService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

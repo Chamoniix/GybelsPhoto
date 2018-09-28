@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import {Post} from "../post.class";
+import {Post} from '../domain/post.class';
+import {PicOfTheDayService} from './pic-of-the-day.component.service';
 
 @Component({
   selector: 'app-pic-of-the-day',
@@ -12,8 +12,7 @@ export class PicOfTheDayComponent implements OnInit {
   public isMenuOpened = false;
   public post = new Post();
 
-
-  constructor(private http: Http) {
+  constructor(public picOfTheDayService: PicOfTheDayService) {
     this.post.id = 1;
     this.post.description = 'Alios autem dicere aiunt multo etiam inhumanius (quem locum breviter paulo ante perstrinxi) praesidii ' +
       'adiumentique causa, non benevolentiae neque caritatis, amicitias esse expetendas; itaque, ut quisque minimum firmitatis haberet ' +
@@ -24,15 +23,10 @@ export class PicOfTheDayComponent implements OnInit {
     this.post.url = 'src/ressources/img/wallhaven-680441.jpg'; //HUG_6032-1.jpg - MAR_5586.JPG wallhaven-680441.jpg
     this.post.date_creation = new Date();
     this.post.auteur = 'Hugo';
-    this.getData();
   }
 
   ngOnInit() {
-  }
-
-
-  private getData() {
-    return this.http.get('http://localhost:8080/api/post/1').subscribe( data => {
+    this.picOfTheDayService.loadPicOfTheDay().subscribe( data => {
       console.log(data);
     });
   }
