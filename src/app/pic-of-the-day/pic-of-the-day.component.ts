@@ -11,6 +11,7 @@ export class PicOfTheDayComponent implements OnInit {
 
   public isMenuOpened = false;
   public post = new Post();
+  public imageToShow;
 
   constructor(public picOfTheDayService: PicOfTheDayService) {
     this.post.id = 1;
@@ -39,7 +40,22 @@ export class PicOfTheDayComponent implements OnInit {
   }
 
   public navigateTo(route: string) {
+  }
 
+  public getImage() {
+    this.picOfTheDayService.getPicOfTheDayBlob().subscribe( data => {
+      this.createImageFromBlob(data);
+    });
+  }
+
+  public createImageFromBlob(image: Blob) {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+      this.imageToShow = reader.result;
+    }, false);
+    if (image) {
+      reader.readAsDataURL(image);
+    }
   }
 
 }
