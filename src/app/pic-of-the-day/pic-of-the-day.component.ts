@@ -12,6 +12,7 @@ export class PicOfTheDayComponent implements OnInit {
   public isMenuOpened = false;
   public post = new Post();
   public imageToShow;
+  public selectedFile: File;
 
   constructor(public picOfTheDayService: PicOfTheDayService) {
     this.post.id = 1;
@@ -21,7 +22,7 @@ export class PicOfTheDayComponent implements OnInit {
       'viri et inopes' +
       'quam opulenti et calamitosi quam ii qui putentur beati.';
     this.post.titre = 'Titre';
-    this.post.url = 'src/ressources/img/wallhaven-680441.jpg'; //HUG_6032-1.jpg - MAR_5586.JPG wallhaven-680441.jpg
+    this.post.url = 'src/ressources/img/wallhaven-680441.jpg'; // HUG_6032-1.jpg - MAR_5586.JPG wallhaven-680441.jpg
     this.post.date_creation = new Date();
     this.post.auteur = 'Hugo';
   }
@@ -56,6 +57,14 @@ export class PicOfTheDayComponent implements OnInit {
     if (image) {
       reader.readAsDataURL(image);
     }
+  }
+
+  public onFileChanged(event) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  public onUpload() {
+    console.log(this.selectedFile);
   }
 
 }
