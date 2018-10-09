@@ -12,7 +12,6 @@ export class PicOfTheDayComponent implements OnInit {
   public isMenuOpened = false;
   public post = new Post();
   public imageToShow;
-  public selectedFile: File;
 
   constructor(public picOfTheDayService: PicOfTheDayService) {
     this.post.id = 1;
@@ -57,14 +56,6 @@ export class PicOfTheDayComponent implements OnInit {
     if (image) {
       reader.readAsDataURL(image);
     }
-  }
-
-  public onFileChanged(event) {
-    this.selectedFile = event.target.files[0];
-  }
-
-  public onUpload() {
-    console.log(this.selectedFile);
   }
 
 }

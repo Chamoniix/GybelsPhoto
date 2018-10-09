@@ -7,8 +7,11 @@
   justify-content: center;
 }
 
-p {
+#form {
+  width: 100%;
   text-align: center;
-  font-size: 6em;
-  font-weight: bold;
+}
+
+#choixFichierInput {
+  display: none;
 }

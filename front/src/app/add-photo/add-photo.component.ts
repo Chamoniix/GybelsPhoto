@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPhotoComponent implements OnInit {
 
+  public selectedFile: File;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public onFileChanged(event) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  public onUpload() {
+    console.log(this.selectedFile);
   }
 
 }
