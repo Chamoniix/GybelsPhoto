@@ -5,8 +5,7 @@ import {Observable} from 'rxjs/index';
 @Injectable()
 export class PicOfTheDayService {
 
-  private readonly URL = 'https://media.licdn.com/dms/image/C4D03AQG0ET1PmnqhLw/profile-displayphoto-shrink_200_200' +
-    '/0?e=1544659200&v=beta&t=ajMB5xemWdVxnWiTFmgnD7E3jBpVflngK4btUZ6OL7Y';
+  private readonly URL = 'http://localhost:8080/api/image';
 
   constructor(private http: HttpClient) {
 

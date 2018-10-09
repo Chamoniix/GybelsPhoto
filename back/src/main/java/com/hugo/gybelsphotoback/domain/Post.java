@@ -10,24 +10,24 @@ import javax.persistence.Table;
 public class Post {
 
 	@Id
-	  private Long id;
+	private Long id;
 
-	  @Column(name = "titre")
-	  private String titre;
+	@Column(name = "titre")
+	private String titre;
 
-	  @Column(name = "description")
-	  private String description;
-	  
-	  @Column(name = "date_creation")
-	  private String date_creation;
-	  
-	  @Column(name = "url")
-	  private String url;
-	  
-	  @Column(name = "auteur")
-	  private String auteur;
-	  
-	 public Long getId() {
+	@Column(name = "description")
+	private String description;
+
+	@Column(name = "date_creation")
+	private String date_creation;
+
+	@Column(name = "url")
+	private String url;
+
+	@Column(name = "auteur")
+	private String auteur;
+
+	public Long getId() {
 		return id;
 	}
 
@@ -74,6 +74,6 @@ public class Post {
 	public void setAuteur(String auteur) {
 		this.auteur = auteur;
 	}
-	  
-	  
+
+
 }
