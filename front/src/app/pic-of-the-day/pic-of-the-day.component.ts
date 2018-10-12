@@ -10,26 +10,19 @@ import {PicOfTheDayService} from './pic-of-the-day.component.service';
 export class PicOfTheDayComponent implements OnInit {
 
   public isMenuOpened = false;
-  public post = new Post();
-  public imageToShow;
+  public postOfTheDay: Post;
+  public pictureOfTheDay;
 
   constructor(public picOfTheDayService: PicOfTheDayService) {
-    this.post.id = 1;
-    this.post.description = 'Alios autem dicere aiunt multo etiam inhumanius (quem locum breviter paulo ante perstrinxi) praesidii ' +
-      'adiumentique causa, non benevolentiae neque caritatis, amicitias esse expetendas; itaque, ut quisque minimum firmitatis haberet ' +
-      'minimumque virium, ita amicitias appetere maxime; ex eo fieri ut mulierculae magis amicitiarum praesidia quaerant quam' +
-      'viri et inopes' +
-      'quam opulenti et calamitosi quam ii qui putentur beati.';
-    this.post.titre = 'Titre';
-    this.post.url = 'src/ressources/img/wallhaven-680441.jpg'; // HUG_6032-1.jpg - MAR_5586.JPG wallhaven-680441.jpg
-    this.post.date_creation = new Date();
-    this.post.auteur = 'Hugo';
+    this.picOfTheDayService.getPostOfTheDay().subscribe( postData => {
+      this.postOfTheDay = postData;
+      this.picOfTheDayService.getPicBlobByPost(this.postOfTheDay).subscribe( pictureData => {
+        this.initialisePictureOfTheDayFromBlob(pictureData);
+      });
+    });
   }
 
   ngOnInit() {
-    this.picOfTheDayService.loadPicOfTheDay().subscribe( data => {
-      console.log(data);
-    });
   }
 
   public closeNav() {
@@ -42,20 +35,15 @@ export class PicOfTheDayComponent implements OnInit {
   public navigateTo(route: string) {
   }
 
-  public getImage() {
-    this.picOfTheDayService.getPicOfTheDayBlob().subscribe( data => {
-      this.createImageFromBlob(data);
-    });
-  }
-
-  public createImageFromBlob(image: Blob) {
+  public initialisePictureOfTheDayFromBlob(imageBlob: Blob) {
     const reader = new FileReader();
+    let image;
     reader.addEventListener('load', () => {
-      this.imageToShow = reader.result;
+      image = reader.result;
+      this.pictureOfTheDay = image;
     }, false);
-    if (image) {
-      reader.readAsDataURL(image);
+    if (imageBlob) {
+      reader.readAsDataURL(imageBlob);
     }
   }
-
 }

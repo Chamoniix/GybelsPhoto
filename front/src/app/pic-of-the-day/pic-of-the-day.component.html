@@ -1,27 +1,18 @@
 <section id="pic-of-the-day">
 
   <div class="img_container">
-    <img src="{{post.url}}" alt="Pic_of_the_day">
+    <img [src]="pictureOfTheDay" alt="Pic_of_the_day">
   </div>
 
-  <div class="credits">
-    <p>Postée par {{post.auteur}} le {{post.date_creation | date: 'mediumDate'}}.</p>
+  <div *ngIf="postOfTheDay != undefined" class="credits">
+    <p>Postée par {{postOfTheDay.auteur}} le {{postOfTheDay.dateCreation | date: 'mediumDate'}}.</p>
   </div>
 
-  <div class="description">
-    <h1>{{post.titre}}</h1>
+  <div *ngIf="postOfTheDay != undefined" class="description">
+    <h1>{{postOfTheDay.titre}}</h1>
     <div>
-      {{post.description}}
+      {{postOfTheDay.description}}
     </div>
   </div>
 
-  <div>
-    <button (click)="getImage()">Image</button>
-    <img [src]="imageToShow"
-         alt="Place image title"
-         *ngIf="!isImageLoading; else noImageFound">
-    <ng-template #noImageFound>
-      <img src="fallbackImage.png" alt="Fallbackimage">
-    </ng-template>
-  </div>
 </section>

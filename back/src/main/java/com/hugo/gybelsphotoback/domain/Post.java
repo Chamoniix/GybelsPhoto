@@ -1,7 +1,11 @@
 package com.hugo.gybelsphotoback.domain;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,6 +14,7 @@ import javax.persistence.Table;
 public class Post {
 
 	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
 	private Long id;
 
 	@Column(name = "titre")
@@ -19,7 +24,7 @@ public class Post {
 	private String description;
 
 	@Column(name = "date_creation")
-	private String date_creation;
+	private Date dateCreation;
 
 	@Column(name = "url")
 	private String url;
@@ -51,12 +56,12 @@ public class Post {
 		this.description = description;
 	}
 
-	public String getDate_creation() {
-		return date_creation;
+	public Date getDateCreation() {
+		return dateCreation;
 	}
 
-	public void setDate_creation(String date_creation) {
-		this.date_creation = date_creation;
+	public void setDateCreation(Date dateCreation) {
+		this.dateCreation = dateCreation;
 	}
 
 	public String getUrl() {

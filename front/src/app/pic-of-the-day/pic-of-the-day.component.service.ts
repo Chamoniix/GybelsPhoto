@@ -1,24 +1,24 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/index';
+import {Post} from '../domain/post.class';
 
 @Injectable()
 export class PicOfTheDayService {
 
-  private readonly URL = 'http://localhost:8080/api/image';
+  private readonly URL = 'http://localhost:8090/api';
 
   constructor(private http: HttpClient) {
 
   }
 
-  public loadPicOfTheDay() {
-    // return this.http.get('http://localhost:8080/api/post/1');
-    return this.http.get('https://jsonplaceholder.typicode.com/todos/1');
+  public getPostOfTheDay(): Observable<any> {
+    return this.http.get(this.URL + '/post');
   }
 
-  public getPicOfTheDayBlob(): Observable<Blob> {
+  public getPicBlobByPost(post: Post): Observable<Blob> {
     return this.http
-      .get(`${this.URL}`, {
+      .get(`${this.URL + '/image/' + post.id}`, {
         responseType: 'blob'
       });
   }

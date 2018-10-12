@@ -3,6 +3,5 @@ export class Post {
   titre: string;
   description: string;
   date_creation: Date;
-  url: string;
   auteur: string;
 }
