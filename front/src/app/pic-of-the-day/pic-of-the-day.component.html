@@ -1,0 +1,18 @@
+<section id="pic-of-the-day">
+
+  <div class="img_container">
+    <img [src]="pictureOfTheDay" alt="Pic_of_the_day">
+  </div>
+
+  <div *ngIf="postOfTheDay != undefined" class="credits">
+    <p>Postée par {{postOfTheDay.auteur}} le {{postOfTheDay.dateCreation | date: 'mediumDate'}}.</p>
+  </div>
+
+  <div *ngIf="postOfTheDay != undefined" class="description">
+    <h1>{{postOfTheDay.titre}}</h1>
+    <div>
+      {{postOfTheDay.description}}
+    </div>
+  </div>
+
+</section>

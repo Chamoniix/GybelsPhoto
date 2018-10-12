@@ -1,0 +1,8 @@
+<section id="add-photo">
+  <div id="form">
+    <input id="choixFichierInput" type="file" (change)="onFileChanged($event)" #fileInput>
+    <span *ngIf="selectedFile != undefined">{{selectedFile.name}}</span><button (click)="fileInput.click()">Select File</button>
+    <button (click)="onUpload()">Upload!</button>
+  </div>
+</section>
+
