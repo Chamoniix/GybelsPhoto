@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AddPhotoComponent implements OnInit {
 
   public selectedFile: File;
+  public selectedFileName: string;
 
   constructor() { }
 
@@ -15,7 +16,12 @@ export class AddPhotoComponent implements OnInit {
   }
 
   public onFileChanged(event) {
-    this.selectedFile = event.target.files[0];
+    this.selectedFileName = event.target.files[0].name;
+    const reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (eventUrl) => {
+      this.selectedFile = eventUrl.target.result;
+    };
   }
 
   public onUpload() {
