@@ -2,8 +2,10 @@
 
   <input id="choixFichierInput" type="file" (change)="onFileChanged($event)" #fileInput>
   <p id="file-name" *ngIf="selectedFile != undefined">{{selectedFileName}}</p>
+
   <img id="selected-img" *ngIf="selectedFile" [src]="selectedFile" />
-  <button id="import-file" (click)="fileInput.click()"><span>Importer une photo</span>
-  </button>
+
+  <button id="import-file" (click)="fileInput.click()" *ngIf="selectedFile == undefined"><span>Importer une photo</span></button>
+  <button id="next" (click)="goToStepTwo()" *ngIf="selectedFile"><span>suivant</span></button>
 
 </section>

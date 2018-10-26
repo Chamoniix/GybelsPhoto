@@ -28,4 +28,8 @@ export class AddPhotoComponent implements OnInit {
     console.log(this.selectedFile);
   }
 
+  public goToStepTwo() {
+
+  }
+
 }
