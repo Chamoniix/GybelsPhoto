@@ -1,11 +1,29 @@
 <section id="add-photo">
 
+  <!--STEP 1 : CHOIX FICHIER-->
   <input id="choixFichierInput" type="file" (change)="onFileChanged($event)" #fileInput>
-  <p id="file-name" *ngIf="selectedFile != undefined">{{selectedFileName}}</p>
 
-  <img id="selected-img" *ngIf="selectedFile" [src]="selectedFile" />
+  <!--STEP 2 : VALIDATION PHOTO-->
+  <button id="import-file" (click)="fileInput.click()" *ngIf="selectedFile == undefined && !isFileSelected"><span>Importer une photo</span></button>
 
-  <button id="import-file" (click)="fileInput.click()" *ngIf="selectedFile == undefined"><span>Importer une photo</span></button>
-  <button id="next" (click)="goToStepTwo()" *ngIf="selectedFile"><span>suivant</span></button>
+  <div id="file-name" *ngIf="!isFileSelected">
+    <p *ngIf="selectedFile != undefined">{{selectedFileName}}</p>
+  </div>
+
+  <img id="selected-img" *ngIf="selectedFile && !isFileSelected" [src]="selectedFile" />
+
+  <div id="next" *ngIf="!isFileSelected"><button (click)="goToStepTwo()" *ngIf="selectedFile"><span>suivant &#8250;</span></button></div>
+
+  <!--STEP 3 : DESCRIPTION-->
+
+  <div id="step-two" *ngIf="isFileSelected">
+    <div id="titre">
+      <span>Titre : </span><input type="text" >
+    </div>
+    <div id="descr">
+      <span>Description : </span><input type="text" >
+    </div>
+  </div>
+
 
 </section>

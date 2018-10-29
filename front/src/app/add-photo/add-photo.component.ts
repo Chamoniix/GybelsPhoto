@@ -9,6 +9,7 @@ export class AddPhotoComponent implements OnInit {
 
   public selectedFile: File;
   public selectedFileName: string;
+  public isFileSelected = false;
 
   constructor() { }
 
@@ -20,7 +21,8 @@ export class AddPhotoComponent implements OnInit {
     const reader = new FileReader();
     reader.readAsDataURL(event.target.files[0]);
     reader.onload = (eventUrl) => {
-      this.selectedFile = eventUrl.target.result;
+      const target: any = eventUrl.target;
+      this.selectedFile = target.result;
     };
   }
 
@@ -29,7 +31,7 @@ export class AddPhotoComponent implements OnInit {
   }
 
   public goToStepTwo() {
-
+    this.isFileSelected = true;
   }
 
 }

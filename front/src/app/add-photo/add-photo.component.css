@@ -9,12 +9,14 @@
 }
 
 #file-name {
+  margin: 0;
+  height: 10%;
   font-size: 20px;
-  margin-bottom: 50px;
 }
 
 #selected-img {
-  margin-bottom: 5%;
+  margin: 0;
+  height: 80%;
 }
 
 #import-file {
@@ -27,14 +29,59 @@
   border: solid 4px #fafafa;
   transition: 0.1s;
 }
-
 #import-file:hover {
   background: #fafafa;
   color: #99c3c8;
   cursor: pointer;
 }
 
-
 #choixFichierInput {
   display: none;
 }
+
+#next {
+  margin: 0;
+  height: 10%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+#next button:hover {
+  background: #fafafa;
+  color: #212427;
+  cursor: pointer;
+}
+
+#next button {
+  height: 60%;
+  padding: 13px 25px;
+  border: none;
+  font-size: 20px;
+  letter-spacing: 3px;
+  background: #212427;
+  color: #fafafa;
+  transition: all 0.3s ease 0s;
+}
+
+#step-two {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#step-two div {
+  display: flex;
+  width: 70%;
+  font-size: 2em;
+}
+
+#step-two div span {
+  width: 50%;
+}
+#step-two div input {
+  width: 50%;
+}
+
+
