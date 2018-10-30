@@ -17,12 +17,11 @@
   <!--STEP 3 : DESCRIPTION-->
 
   <div id="step-two" *ngIf="isFileSelected">
-    <div id="titre">
-      <span>Titre : </span><input type="text" >
-    </div>
-    <div id="descr">
-      <span>Description : </span><input type="text" >
-    </div>
+
+    <input class="input" id="titre" type="text" placeholder="Titre"/>
+    <textarea class="input" id="descr" placeholder="Entrez une description pour votre photo."></textarea>
+
+    <div id="" ><button (click)="uploadPicture()"><span>Poster !</span></button></div>
   </div>
 
 
