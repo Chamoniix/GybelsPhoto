@@ -12,7 +12,7 @@
 
   <img id="selected-img" *ngIf="selectedFile && !isFileSelected" [src]="selectedFile" />
 
-  <div id="next" *ngIf="!isFileSelected"><button (click)="goToStepTwo()" *ngIf="selectedFile"><span>suivant &#8250;</span></button></div>
+  <div class="bottom-button" id="next" *ngIf="!isFileSelected"><button (click)="goToStepTwo()" *ngIf="selectedFile"><span>suivant &#8250;</span></button></div>
 
   <!--STEP 3 : DESCRIPTION-->
 
@@ -21,7 +21,7 @@
     <input class="input" id="titre" type="text" placeholder="Titre"/>
     <textarea class="input" id="descr" placeholder="Entrez une description pour votre photo."></textarea>
 
-    <div id="" ><button (click)="uploadPicture()"><span>Poster !</span></button></div>
+    <div class="bottom-button" id="button-post-div" ><button (click)="uploadPicture()"><span>Poster !</span></button></div>
   </div>
 
 

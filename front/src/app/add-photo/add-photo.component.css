@@ -39,7 +39,7 @@
   display: none;
 }
 
-#next {
+.bottom-button {
   margin: 0;
   height: 10%;
   width: 80%;
@@ -99,4 +99,8 @@
   height: 30%;
   font-family: inherit;
   font-size: 2em;
+}
+
+#button-post-div {
+  height: 10%;
 }
