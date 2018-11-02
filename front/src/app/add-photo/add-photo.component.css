@@ -48,13 +48,13 @@
   justify-content: right;
 }
 
-#next button:hover {
+.bottom-button button:hover {
   background: #fafafa;
   color: #212427;
   cursor: pointer;
 }
 
-#next button {
+.bottom-button button {
   height: 60%;
   padding: 13px 25px;
   border: none;
@@ -76,11 +76,8 @@
 
 #step-two div {
   display: flex;
-  width: 70%;
-  height: 100%;
-  font-size: 2em;
+  width: 80%;
 }
-
 
 .input {
   width: 80%;

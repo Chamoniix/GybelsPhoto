@@ -9,7 +9,9 @@ import { MenuComponent } from './menu/menu.component';
 import { KezakoComponent } from './kezako/kezako.component';
 import { GalerieComponent } from './galerie/galerie.component';
 import {HttpClientModule} from '@angular/common/http';
-import {PicOfTheDayService} from "./pic-of-the-day/pic-of-the-day.component.service";
+import {PicOfTheDayService} from './pic-of-the-day/pic-of-the-day.component.service';
+import {FormsModule} from '@angular/forms';
+import {AddPhotoService} from './add-photo/add-photo.component.service';
 
 const routes: Routes = [
   {
@@ -48,9 +50,10 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
-  providers: [AppComponent, PicOfTheDayService],
+  providers: [AppComponent, PicOfTheDayService, AddPhotoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

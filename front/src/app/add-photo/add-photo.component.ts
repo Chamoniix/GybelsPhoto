@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Post} from '../domain/post.class';
+import {AddPhotoService} from './add-photo.component.service';
 
 @Component({
   selector: 'app-add-photo',
@@ -10,8 +12,13 @@ export class AddPhotoComponent implements OnInit {
   public selectedFile: File;
   public selectedFileName: string;
   public isFileSelected = false;
+  public uploadPost: Post;
+  private addPhotoService: AddPhotoService;
 
-  constructor() { }
+  constructor(addPhotoService: AddPhotoService) {
+    this.uploadPost = new Post(null, null, null, null, 'user');
+    this.addPhotoService = addPhotoService;
+  }
 
   ngOnInit() {
   }
@@ -26,12 +33,16 @@ export class AddPhotoComponent implements OnInit {
     };
   }
 
-  public onUpload() {
-    console.log(this.selectedFile);
-  }
-
   public goToStepTwo() {
     this.isFileSelected = true;
+  }
+
+  public uploadPicture() {
+    this.uploadPost.dateCreation = new Date();
+    console.log(this.uploadPost);
+    this.addPhotoService.uploadPost(this.uploadPost).subscribe( data => {
+      console.log(data);
+    });
   }
 
 }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.hugo.gybelsphotoback.domain.Post;
 import com.hugo.gybelsphotoback.repository.PostRepository;
-
+import com.hugo.gybelsphotoback.util.Constantes;
 
 @Service
 public class PostService {
@@ -27,5 +27,9 @@ public class PostService {
 		else
 			return null;
 	}
-	
+
+	public void savePost(Post post) {
+		post.setUrl(Constantes.IMAGES_PATH + "");
+		this.postRepository.save(post);
+	}
 }

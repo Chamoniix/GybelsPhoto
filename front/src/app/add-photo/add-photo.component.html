@@ -18,8 +18,8 @@
 
   <div id="step-two" *ngIf="isFileSelected">
 
-    <input class="input" id="titre" type="text" placeholder="Titre"/>
-    <textarea class="input" id="descr" placeholder="Entrez une description pour votre photo."></textarea>
+    <input class="input" id="titre" [(ngModel)]="uploadPost.titre" type="text" placeholder="Titre"/>
+    <textarea class="input" id="descr" [(ngModel)]="uploadPost.description" placeholder="Entrez une description pour votre photo."></textarea>
 
     <div class="bottom-button" id="button-post-div" ><button (click)="uploadPicture()"><span>Poster !</span></button></div>
   </div>
