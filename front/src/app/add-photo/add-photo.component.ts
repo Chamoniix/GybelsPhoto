@@ -42,7 +42,9 @@ export class AddPhotoComponent implements OnInit {
     console.log(this.uploadPost);
     this.addPhotoService.uploadPost(this.uploadPost).subscribe( data => {
       console.log(data);
+      this.addPhotoService.updloadImage(this.selectedFile).subscribe(data2 => {
+        console.log(data2);
+      });
     });
   }
-
 }

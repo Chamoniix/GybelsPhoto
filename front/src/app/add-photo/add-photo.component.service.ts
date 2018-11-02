@@ -1,4 +1,4 @@
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/index';
 import {Post} from '../domain/post.class';
@@ -27,5 +27,19 @@ export class AddPhotoService {
       .get(`${this.URL + '/image/' + post.id}`, {
         responseType: 'blob'
       });
+  }
+
+  public updloadImage(file: File) {
+
+    const formdata: FormData = new FormData();
+
+    formdata.append('file', file);
+
+    const req = new HttpRequest('POST', this.URL + '/image', formdata, {
+      reportProgress: true,
+      responseType: 'text'
+    });
+
+    return this.http.request(req);
   }
 }
